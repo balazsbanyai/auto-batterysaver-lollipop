@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE strings [
+    <!ENTITY commonDesc "turn on the battery saver feature on the device automatically when the battery is discharging">
+    <!ENTITY accessibility "accessibility">
+]>
+<resources>
+
+    <string name="app_name">Auto Battery Saver</string>
+    <string name="description">When this service is enabled, it will &commonDesc;</string>
+    <string name="app_description">This application is intended &commonDesc;</string>
+    <string name="app_instruction">In order for this feature to work, you have to manually enable this application as an accessibility service.</string>
+    <string name="gotoAccessibilitySettings">accessibility settings</string>
+    <string name="app_clickToNavigate">Tap this button to navigate to the accessibility settings:</string>
+</resources>
