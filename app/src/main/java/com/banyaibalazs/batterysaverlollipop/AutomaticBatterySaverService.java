@@ -15,14 +15,20 @@ public class AutomaticBatterySaverService extends AccessibilityService implement
 
     static final String ACTION = "android.settings.BATTERY_SAVER_SETTINGS";
 
+    public static final String ACTION_EMULATE_POWER_DISCONNECTED = BuildConfig.APPLICATION_ID + ".EMULATE_POWER_DISCONNECTED";
+
 
     BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            setupBot();
-            openBatterySaverSettings();
+            doChangeSettings();
         }
     };
+
+    private void doChangeSettings() {
+        setupBot();
+        openBatterySaverSettings();
+    }
 
     private Bot bot;
 
@@ -59,6 +65,9 @@ public class AutomaticBatterySaverService extends AccessibilityService implement
         super.onServiceConnected();
 
         IntentFilter filter = new IntentFilter(Intent.ACTION_POWER_DISCONNECTED);
+        if (BuildConfig.DEBUG) {
+            filter.addAction(ACTION_EMULATE_POWER_DISCONNECTED);
+        }
         registerReceiver(receiver, filter);
     }
 
