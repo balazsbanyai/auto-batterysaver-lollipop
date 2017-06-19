@@ -1,13 +1,15 @@
 apply plugin: 'com.android.application'
 
+project.ext.targetApi = 25
+
 android {
-    compileSdkVersion 22
-    buildToolsVersion "21.1.2"
+    compileSdkVersion targetApi
+    buildToolsVersion "26.0.0"
 
     defaultConfig {
         applicationId "com.banyaibalazs.batterysaverlollipop"
         minSdkVersion 21
-        targetSdkVersion 22
+        targetSdkVersion targetApi
         versionCode 1
         versionName "1.0"
     }
@@ -17,8 +19,4 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
-
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
 }
