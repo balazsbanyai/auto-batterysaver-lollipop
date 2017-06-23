@@ -10,11 +10,20 @@ android {
         applicationId "com.banyaibalazs.batterysaverlollipop"
         minSdkVersion 21
         targetSdkVersion targetApi
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.0.2"
+    }
+    signingConfigs {
+        prod {
+            storeFile file(batterySaverStorePath)
+            storePassword batterySaverStorePassword
+            keyAlias "BatterySaverKey"
+            keyPassword batterySaverKeyPassword
+        }
     }
     buildTypes {
         release {
+            signingConfig signingConfigs.prod
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
