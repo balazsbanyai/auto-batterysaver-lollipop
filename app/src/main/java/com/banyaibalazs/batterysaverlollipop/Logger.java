@@ -19,14 +19,14 @@ public abstract class Logger {
     }
 
     private static class LogcatLogger extends Logger {
-        private final String clazzName;
+        private final String tag;
 
         LogcatLogger(String clazzName) {
-            this.clazzName = clazzName;
+            this.tag = "AutoBatterySaver." + clazzName;
         }
 
         public void debug(String s) {
-            Log.d(clazzName, s);
+            Log.d(tag, s);
         }
     }
 
